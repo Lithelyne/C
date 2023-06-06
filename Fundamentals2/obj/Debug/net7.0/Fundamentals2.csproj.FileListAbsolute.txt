@@ -1,0 +1,15 @@
+F:\Coding\C\Fundamentals2\bin\Debug\net7.0\Fundamentals2.exe
+F:\Coding\C\Fundamentals2\bin\Debug\net7.0\Fundamentals2.deps.json
+F:\Coding\C\Fundamentals2\bin\Debug\net7.0\Fundamentals2.runtimeconfig.json
+F:\Coding\C\Fundamentals2\bin\Debug\net7.0\Fundamentals2.dll
+F:\Coding\C\Fundamentals2\bin\Debug\net7.0\Fundamentals2.pdb
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.csproj.AssemblyReference.cache
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.GeneratedMSBuildEditorConfig.editorconfig
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.AssemblyInfoInputs.cache
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.AssemblyInfo.cs
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.csproj.CoreCompileInputs.cache
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.dll
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\refint\Fundamentals2.dll
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.pdb
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\Fundamentals2.genruntimeconfig.cache
+F:\Coding\C\Fundamentals2\obj\Debug\net7.0\ref\Fundamentals2.dll
