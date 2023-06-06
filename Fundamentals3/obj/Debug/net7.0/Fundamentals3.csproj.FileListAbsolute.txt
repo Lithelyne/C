@@ -1,0 +1,15 @@
+F:\Coding\C\Fundamentals3\bin\Debug\net7.0\Fundamentals3.exe
+F:\Coding\C\Fundamentals3\bin\Debug\net7.0\Fundamentals3.deps.json
+F:\Coding\C\Fundamentals3\bin\Debug\net7.0\Fundamentals3.runtimeconfig.json
+F:\Coding\C\Fundamentals3\bin\Debug\net7.0\Fundamentals3.dll
+F:\Coding\C\Fundamentals3\bin\Debug\net7.0\Fundamentals3.pdb
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.csproj.AssemblyReference.cache
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.GeneratedMSBuildEditorConfig.editorconfig
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.AssemblyInfoInputs.cache
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.AssemblyInfo.cs
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.csproj.CoreCompileInputs.cache
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.dll
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\refint\Fundamentals3.dll
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.pdb
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\Fundamentals3.genruntimeconfig.cache
+F:\Coding\C\Fundamentals3\obj\Debug\net7.0\ref\Fundamentals3.dll
