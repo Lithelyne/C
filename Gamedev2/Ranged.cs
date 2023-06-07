@@ -1,6 +1,6 @@
 public class RangedFighter : Enemy
 {
-    public int Distance { get; set; } = 5;
+    public int Distance { get; set; }
 
     public RangedFighter(string name) : base(name)
     {

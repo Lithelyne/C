@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Coding\\C\\GameDev2\\Gamedev2.csproj": {}
+    "F:\\Coding\\C\\Gamedev2\\Gamedev2.csproj": {}
   },
   "projects": {
-    "F:\\Coding\\C\\GameDev2\\Gamedev2.csproj": {
+    "F:\\Coding\\C\\Gamedev2\\Gamedev2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Coding\\C\\GameDev2\\Gamedev2.csproj",
+        "projectUniqueName": "F:\\Coding\\C\\Gamedev2\\Gamedev2.csproj",
         "projectName": "Gamedev2",
-        "projectPath": "F:\\Coding\\C\\GameDev2\\Gamedev2.csproj",
+        "projectPath": "F:\\Coding\\C\\Gamedev2\\Gamedev2.csproj",
         "packagesPath": "C:\\Users\\Reisc\\.nuget\\packages\\",
-        "outputPath": "F:\\Coding\\C\\GameDev2\\obj\\",
+        "outputPath": "F:\\Coding\\C\\Gamedev2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Reisc\\AppData\\Roaming\\NuGet\\NuGet.Config"

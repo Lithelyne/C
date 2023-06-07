@@ -13,13 +13,19 @@ public class MeleeFighter : Enemy
 
     public void Rage(Enemy target)
 {
+    //generates random number
     Random random = new Random();
+
+    //generates random index within this list
     int index = random.Next(AttackList.Count); 
 
+    //retrieves attack
     Attack chosenAttack = AttackList[index]; 
 
+    //will increase whatever attacks damage by 10
     chosenAttack.DamageAmount += 10;
 
+    //passes information into our PerformAttack method from Enemy.cs
     PerformAttack(target, chosenAttack);
 }
 
