@@ -1,0 +1,15 @@
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.csproj.AssemblyReference.cache
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.GeneratedMSBuildEditorConfig.editorconfig
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.AssemblyInfoInputs.cache
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.AssemblyInfo.cs
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.csproj.CoreCompileInputs.cache
+F:\Coding\C\GameDev2\bin\Debug\net7.0\Gamedev2.exe
+F:\Coding\C\GameDev2\bin\Debug\net7.0\Gamedev2.deps.json
+F:\Coding\C\GameDev2\bin\Debug\net7.0\Gamedev2.runtimeconfig.json
+F:\Coding\C\GameDev2\bin\Debug\net7.0\Gamedev2.dll
+F:\Coding\C\GameDev2\bin\Debug\net7.0\Gamedev2.pdb
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.dll
+F:\Coding\C\GameDev2\obj\Debug\net7.0\refint\Gamedev2.dll
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.pdb
+F:\Coding\C\GameDev2\obj\Debug\net7.0\Gamedev2.genruntimeconfig.cache
+F:\Coding\C\GameDev2\obj\Debug\net7.0\ref\Gamedev2.dll
