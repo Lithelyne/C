@@ -1,35 +1,43 @@
-﻿@{
+﻿@model Survey
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<form action="/showUser" method="POST">
-    <div class="form-group">
-        <label for="Name">Name:</label>
-        <input type="text" name="Name" id="Name">
-    </div>
+<div class="container w-80 mx-auto">
+    <form asp-controller="Home" asp-action="AddUser" method="POST">
+        <div class="form-group mb-3">
+            <label asp-for="Name">Name:</label>
+            <span asp-validation-for="Name" class="text-danger font-weight-bold"></span>
+            <input class="form-control" asp-for="Name">
+        </div>
 
-    <div class="form-group">
-        <label for="Location">Dojo Location:</label>
-        <select name="Location" id="Location">
-            <option value="San Jose">San Jose</option>
-            <option value="Austin">Austin</option>
-            <option value="Tokyo">Tokyo</option>
-        </select>
-    </div>
+        <div class="form-group mb-3">
+            <label asp-for="Location">Dojo Location:</label>
+            <span asp-validation-for="Location"></span>
+            <select asp-for="Location" class="form-control w-70" id="Location">
+                <option value="San Jose">San Jose</option>
+                <option value="Austin">Austin</option>
+                <option value="Tokyo">Tokyo</option>
+            </select>
+        </div>
 
-    <div class="form-group">
-        <label for="Language">Favorite Language:</label>
-        <select name="Language" id="Language">
-            <option value="C#">C#</option>
-            <option value="Python">Python</option>
-            <option value="Javascript">Javascript</option>
-        </select>
-    </div>
+        <div class="form-group mb-3">
+            <label asp-for="Language">Favorite Language:</label>
+            <span asp-validation-for="Language"></span>
+            <select asp-for="Language" class="form-control w-70" id="Language">
+                <option value="C#">C#</option>
+                <option value="Python">Python</option>
+                <option value="Javascript">Javascript</option>
+            </select>
+        </div>
 
-    <div class="form-group">
-        <label for="Comments">Comments (Optional):</label>
-        <input type="text" name="Comments" id="Comments">
-    </div>
+        <div class="form-group mb-3">
+            <label asp-for="Comments">Comments (Optional):</label>
+            <span asp-validation-for="Comments" class="text-danger font-weight-bold"></span>
+            <input class="form-control" asp-for="Comments">
+        </div>
 
-    <input type="submit" value="Submit">
-</form>
+        <input type="submit" value="Submit" class="btn btn-primary rounded-pill">
+    </form>
+
+</div>

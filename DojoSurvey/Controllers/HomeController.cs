@@ -20,15 +20,13 @@ public class HomeController : Controller
     }
 
     [HttpPost("showUser")]
-    public IActionResult AddUser(string Name, string Location, string Language, string Comments)
+    public IActionResult AddUser(Survey newSurvey)
     {
-        ViewBag.Name = Name;
-        ViewBag.Location = Location;
-        ViewBag.Language = Language;
-        ViewBag.Comments = Comments;
-
-
-        return View("showUser");
+        if(!ModelState.IsValid)
+        {
+            return View("Index");
+        }
+        return View("showUser", newSurvey);
     }
 
 
