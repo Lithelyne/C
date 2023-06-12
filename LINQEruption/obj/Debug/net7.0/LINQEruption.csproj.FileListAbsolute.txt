@@ -1,0 +1,15 @@
+F:\Coding\C\LINQEruption\bin\Debug\net7.0\LINQEruption.exe
+F:\Coding\C\LINQEruption\bin\Debug\net7.0\LINQEruption.deps.json
+F:\Coding\C\LINQEruption\bin\Debug\net7.0\LINQEruption.runtimeconfig.json
+F:\Coding\C\LINQEruption\bin\Debug\net7.0\LINQEruption.dll
+F:\Coding\C\LINQEruption\bin\Debug\net7.0\LINQEruption.pdb
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.csproj.AssemblyReference.cache
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.GeneratedMSBuildEditorConfig.editorconfig
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.AssemblyInfoInputs.cache
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.AssemblyInfo.cs
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.csproj.CoreCompileInputs.cache
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.dll
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\refint\LINQEruption.dll
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.pdb
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\LINQEruption.genruntimeconfig.cache
+F:\Coding\C\LINQEruption\obj\Debug\net7.0\ref\LINQEruption.dll
