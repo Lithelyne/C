@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SessionWorkshop.Models;
-// #pragma warning disable CS8618
 
 namespace SessionWorkshop.Controllers;
 
