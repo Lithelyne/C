@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+@model Survey
+<form asp-action="addInfo" asp-controller="Home" method="POST" class="d-flex flex-column align-items-center">
+    <h1>Welcome!</h1>
+    <label asp-for="Name">Please give your name:</label><br />
+    <input asp-for="Name" type="text" name="Name">
+    <span class="text-danger" asp-validation-for="Name"></span><br />
+
+    <input type="submit" value="Submit" style="background-color:rgb(96, 219, 96)">
+</form>

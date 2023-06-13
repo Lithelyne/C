@@ -1,0 +1,19 @@
+<h3>Welcome @Context.Session.GetString("Name")!</h3>
+
+
+
+@{
+    Random random = new Random();
+}
+
+<form asp-action="addNumber" asp-controller="Home" method="POST" class="d-flex flex-column align-items-center">
+    <h1>@Context.Session.GetInt32("Number")</h1>
+    <div>
+        <button class="randBtn" value="1" name="val" style="background-color:yellow">+1</button>
+        <button class="randBtn" value="-1" name="val" style="color: white; background-color:rgb(72, 72, 216)">-1</button>
+    </div>
+    <div>
+        <button class="randBtn" value='@Context.Session.GetInt32("Number")' name="val" style="color: white; background-color:rgb(238, 107, 107)">x2</button>
+        <button class="randBtn" value='@random.Next(1, 11)' name="val" style="background-color:rgb(96, 219, 96)">+ Random</button>
+    </div>
+</form>
