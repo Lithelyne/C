@@ -39,6 +39,76 @@ class BinarySearchTree {
     }
 
     /**
+     * Determines if this tree contains the given searchVal.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {number} searchVal The number to search for in the node's data.
+     * @returns {boolean} Indicates if the searchVal was found.
+     */
+    contains(searchVal) {
+        let current = this.root;
+
+        //While loop keeps going til null value is found, then we know value is not there.
+        while (current !== null) {
+
+            //checks if current node has the value
+            if (searchVal === current.data) {
+                return searchVal;
+
+            //if it was not in current, checks to see if the number is less then.  If it is, checks the left node.
+            } else if (searchVal < current.data) {
+                current = current.left;
+
+            //If current node, and number is NOT less than, it checks right.
+            } else {
+                current = current.right;
+            }
+        }
+
+        return NaN;
+    }
+
+
+    /**
+     * Determines if this tree contains the given searchVal.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {number} searchVal The number to search for in the node's data.
+     * @returns {boolean} Indicates if the searchVal was found.
+     */
+    containsRecursive(searchVal, current = this.root) {
+        
+        //Checks to make sure isn't null
+        if (current === null) {
+            return NaN;
+        }
+
+        //Checks current node for value.
+        if (searchVal === current.data) {
+            return searchVal;
+
+        //if it was not in current, checks to see if the number is less then.  If it is, it uses it's own function to check one to the left.
+        } else if (searchVal < current.data) {
+            return this.containsRecursive(searchVal, current.left);
+        
+        //If current node, and number is NOT less than, it uses its own function to check one to the right.
+        } else {
+            return this.containsRecursive(searchVal, current.right);
+        }
+    }
+
+    /**
+     * Calculates the range (max - min) from the given startNode.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} startNode The node to start from to calculate the range.
+     * @returns {number|null} The range of this tree or a sub tree depending on if the
+     *    startNode is the root or not.
+     */
+    range(startNode = this.root) { }
+
+
+    /**
      * Determines if this tree is empty.
      * - Time: O(?).
      * - Space: O(?).
@@ -78,14 +148,14 @@ class BinarySearchTree {
      */
     minRecursive(current = this.root) {
         if (current === null) {
-            return NaN; 
+            return NaN;
         }
 
         if (current.left === null) {
-            return current.data; 
+            return current.data;
         }
 
-        return this.minRecursive(current.left); 
+        return this.minRecursive(current.left);
     }
 
     /**
@@ -101,14 +171,14 @@ class BinarySearchTree {
             if (current === null) {
                 return NaN;
             }
-    
+
             while (current.right !== null) {
                 current = current.right;
             }
-    
+
             return current.data;
         }
-     }
+    }
 
     /**
      * Retrieves the largest integer data from this tree.
@@ -120,14 +190,14 @@ class BinarySearchTree {
      */
     maxRecursive(current = this.root) {
         if (current === null) {
-            return NaN; 
+            return NaN;
         }
 
         if (current.right === null) {
-            return current.data; 
+            return current.data;
         }
 
-        return this.maxRecursive(current.right); 
+        return this.maxRecursive(current.right);
     }
 
     // Logs this tree horizontally with the root on the left.
