@@ -55,11 +55,11 @@ class BinarySearchTree {
             if (searchVal === current.data) {
                 return searchVal;
 
-            //if it was not in current, checks to see if the number is less then.  If it is, checks the left node.
+                //if it was not in current, checks to see if the number is less then.  If it is, checks the left node.
             } else if (searchVal < current.data) {
                 current = current.left;
 
-            //If current node, and number is NOT less than, it checks right.
+                //If current node, and number is NOT less than, it checks right.
             } else {
                 current = current.right;
             }
@@ -77,7 +77,7 @@ class BinarySearchTree {
      * @returns {boolean} Indicates if the searchVal was found.
      */
     containsRecursive(searchVal, current = this.root) {
-        
+
         //Checks to make sure isn't null
         if (current === null) {
             return NaN;
@@ -87,11 +87,11 @@ class BinarySearchTree {
         if (searchVal === current.data) {
             return searchVal;
 
-        //if it was not in current, checks to see if the number is less then.  If it is, it uses it's own function to check one to the left.
+            //if it was not in current, checks to see if the number is less then.  If it is, it uses it's own function to check one to the left.
         } else if (searchVal < current.data) {
             return this.containsRecursive(searchVal, current.left);
-        
-        //If current node, and number is NOT less than, it uses its own function to check one to the right.
+
+            //If current node, and number is NOT less than, it uses its own function to check one to the right.
         } else {
             return this.containsRecursive(searchVal, current.right);
         }
@@ -105,7 +105,16 @@ class BinarySearchTree {
      * @returns {number|null} The range of this tree or a sub tree depending on if the
      *    startNode is the root or not.
      */
-    range(startNode = this.root) { }
+    range(startNode = this.root) {
+        if (startNode === null) {
+            return null;
+        }
+
+        const minValue = this.min(startNode);
+        const maxValue = this.max(startNode);
+
+        return maxValue - minValue;
+    }
 
 
     /**
