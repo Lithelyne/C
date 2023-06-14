@@ -1,0 +1,27 @@
+@model List<Dish>
+
+<div style="text-align: center;">
+    <a asp-controller="Home" asp-action="Index">Home</a> || <a asp-controller="Home" asp-action="NewDish">Create New
+        Post</a>
+                    <h3 class="text-decoration-underline mb-3">Check out some recent dishes</h3>
+                    <h4 class="card-title text-center bg-dark text-light py-2 rounded-top">
+            Welcome to CRUDelicious
+        </h4>
+
+</div>
+
+@foreach (Dish dish in Model)
+{
+    <div class=" shadow rounded mx-auto w-75 m-3">
+
+        <div class="card-body">
+            <p class="card-text">@dish.Name by @dish.Chef</p>
+            <a asp-controller="Home" asp-action="ViewDish" asp-route-id="@dish.PostID">View Recipe</a>
+        </div>
+    </div>
+
+
+
+
+
+}

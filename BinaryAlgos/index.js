@@ -39,6 +39,83 @@ class BinarySearchTree {
     }
 
     /**
+     * Inserts a new node with the given newVal in the right place to preserver
+     * the order of this tree.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {number} newVal The data to be added to a new node.
+     * @returns {BinarySearchTree} This tree.
+     */
+    insert(newVal) {
+        //Creates a new value
+        const newNode = new BSTNode(newVal);
+
+        //Checks if tree is empty, if it is, makes the value this.root
+        if(this.isEmpty()){
+            this.root = newNode;
+            return this;
+        }
+
+        //keeps track of our current node
+        let currentNode = this.root;
+
+        //continues til null
+        while (currentNode) {
+            
+            //checks value against currentNode, if less should be inserted on left side of tree
+            if (newVal < currentNode.data) {
+                //Checks if there is a left value. Continues down the line if there is.
+                if (currentNode.left) {
+                    currentNode = currentNode.left;
+                
+                //If there is no value to the left, becomes that newNode and returns it
+                } else {
+                    currentNode.left = newNode;
+                    return this;
+                }
+            
+            //it must be greater then current node data so insert on the right side.
+            } else {
+
+                //Checks if there is a right value, continues if it is.
+                if (currentNode.right) {
+                    currentNode = currentNode.right;
+
+                //If no vlue to the right, makes itself the new node.
+                } else {
+                    currentNode.right = newNode;
+                    return this;
+                }
+            }
+        }
+    }
+
+
+    /**
+     * Inserts a new node with the given newVal in the right place to preserver
+     * the order of this tree.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {number} newVal The data to be added to a new node.
+     * @param {Node} curr The node that is currently accessed from the tree as
+     *    the tree is being traversed.
+     * @returns {BinarySearchTree} This tree.
+     */
+    insertRecursive(newVal, curr = this.root) {
+
+
+        if (newVal < curr.data) {
+            curr.left = this.insertRecursive(newVal, curr.left);
+        } else {
+            curr.right = this.insertRecursive(newVal, curr.right);
+        }
+
+        return curr;
+    }
+
+
+
+    /**
      * Determines if this tree contains the given searchVal.
      * - Time: O(?).
      * - Space: O(?).
@@ -269,20 +346,21 @@ threeLevelTree.root.right.left = new BSTNode(13);
     4    12  18  24  31  44 66  90
 */
 /***************** Uncomment after insert method is created. ****************/
-  // const fullTree = new BinarySearchTree();
-  // fullTree
-  //   .insert(25)
-  //   .insert(15)
-  //   .insert(10)
-  //   .insert(22)
-  //   .insert(4)
-  //   .insert(12)
-  //   .insert(18)
-  //   .insert(24)
-  //   .insert(50)
-  //   .insert(35)
-  //   .insert(70)
-  //   .insert(31)
-  //   .insert(44)
-  //   .insert(66)
-  //   .insert(90);
+const fullTree = new BinarySearchTree();
+fullTree
+    .insert(25)
+    .insert(15)
+    .insert(10)
+    .insert(22)
+    .insert(4)
+    .insert(12)
+    .insert(18)
+    .insert(24)
+    .insert(50)
+    .insert(35)
+    .insert(70)
+    .insert(31)
+    .insert(44)
+    .insert(66)
+    .insert(90);
+fullTree.print();
