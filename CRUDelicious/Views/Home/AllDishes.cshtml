@@ -16,7 +16,9 @@
 
         <div class="card-body">
             <p class="card-text">@dish.Name by @dish.Chef</p>
-            <a asp-controller="Home" asp-action="ViewDish" asp-route-id="@dish.PostID">View Recipe</a>
+            <a asp-controller="Home" asp-action="ViewDish" asp-route-id="@dish.PostID">View Recipe</a> ||
+            <a asp-controller="Home" asp-action="EditDish" asp-route-postID="@dish.PostID">Edit Recipe</a>
+
         </div>
     </div>
 

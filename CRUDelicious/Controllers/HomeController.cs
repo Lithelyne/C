@@ -68,8 +68,47 @@ public class HomeController : Controller
             db.SaveChanges();
         }
         return RedirectToAction("Index");
+    }
 
+    [HttpGet("dish/{postID}/edit")]
+    public IActionResult EditDish(int postID)
+    {
+        Dish? dish = db.Dishes.FirstOrDefault(dish => dish.PostID == postID);
 
+        if(dish == null)
+        {
+            return RedirectToAction("Index");
+        }
+        return View("Edit", dish);
+    }
+
+    [HttpPost("dish/{postID}/edit")]
+    public IActionResult UpdateDish(int postID, Dish updatedDish)
+    {
+        if(!ModelState.IsValid)
+        {
+            // Dish? originalDish = db.Dishes.FirstOrDefault(dish => dish.PostID == postID);
+            // return View("Edit", originalDish);
+            //this bottom line does the job of the top two, referring to edit Dish
+            return EditDish(postID);
+        }
+        Dish? dbDish = db.Dishes.FirstOrDefault(dish => dish.PostID == postID);
+
+        if (dbDish == null)
+        {
+            return RedirectToAction("Index");
+        }
+
+        dbDish.Name = updatedDish.Name;
+        dbDish.Chef = updatedDish.Chef;
+        dbDish.Tastiness = updatedDish.Tastiness;
+        dbDish.Calories = updatedDish.Calories;
+        dbDish.Description = updatedDish.Description;
+        dbDish.UpdatedAT = DateTime.Now;
+
+        db.Dishes.Update(dbDish);
+        db.SaveChanges();
+        return RedirectToAction("ViewDish", new { id= dbDish.PostID });
     }
 
     public IActionResult Privacy()
