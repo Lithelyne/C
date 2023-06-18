@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ChefsNDishes.Models;
-using Microsoft.Extensions.Logging;
 
 
 namespace ChefsNDishes.Controllers;
@@ -75,7 +74,7 @@ public IActionResult CreateDish(Dish dish)
     return View("NewChef");
   }
 
- [HttpPost("chefs/create")]
+  [HttpPost("chefs/create")]
   public IActionResult CreateChef(Chef chef)
   {
     if (!ModelState.IsValid)
@@ -86,6 +85,9 @@ public IActionResult CreateDish(Dish dish)
     db.SaveChanges();
     return RedirectToAction("Index");
   }
+
+
+
 
 
 
