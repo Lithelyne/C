@@ -46,18 +46,14 @@ public IActionResult CreateDish(Dish dish)
 {
     if (ModelState.IsValid)
     {
-        // Get the chef ID from the form submission
         int chefId = dish.ChefId;
 
-        // Retrieve the chef from the database using the chef ID
         Chef chef = db.Chefs.Find(chefId);
 
         if (chef != null)
         {
-            // Assign the chef to the Creator property of the dish
             dish.Creator = chef;
 
-            // Add the dish to the database
             db.Dishes.Add(dish);
             db.SaveChanges();
 
@@ -65,7 +61,6 @@ public IActionResult CreateDish(Dish dish)
         }
     }
 
-    // If there was an error, return to the NewDish view
     List<Chef> allChefs = db.Chefs.ToList();
     ViewData["Chefs"] = allChefs;
     return View("NewDish");
@@ -80,32 +75,17 @@ public IActionResult CreateDish(Dish dish)
     return View("NewChef");
   }
 
-[HttpPost("chefs/create")]
-public IActionResult CreateChef(Chef chef)
-{
-    _logger.LogInformation("CreateChef action triggered");
-    _logger.LogInformation("Chef object: {@chef}", chef);
-
+ [HttpPost("chefs/create")]
+  public IActionResult CreateChef(Chef chef)
+  {
     if (!ModelState.IsValid)
     {
-        return View("NewChef");
+      return View("NewChef");
     }
-
-    try
-    {
-        db.Chefs.Add(chef);
-        db.SaveChanges();
-
-        return RedirectToAction("Index");
-    }
-    catch (Exception ex)
-    {
-        _logger.LogError(ex, "Error occurred while saving chef to the database");
-        ModelState.AddModelError("", "An error occurred while saving the chef. Please try again.");
-
-        return View("NewChef");
-    }
-}
+    db.Chefs.Add(chef);
+    db.SaveChanges();
+    return RedirectToAction("Index");
+  }
 
 
 

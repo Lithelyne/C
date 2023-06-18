@@ -21,7 +21,7 @@ namespace ChefsNDishes.Models
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
 
-        public List<Dish> Dishes { get; set; } // Collection property to hold associated dishes
+        public List<Dish> Dishes { get; set; } 
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
