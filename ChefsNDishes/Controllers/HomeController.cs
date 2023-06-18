@@ -80,7 +80,7 @@ public IActionResult CreateDish(Dish dish)
     return View("NewChef");
   }
 
-  [HttpPost("chefs/create")]
+[HttpPost("chefs/create")]
 public IActionResult CreateChef(Chef chef)
 {
     _logger.LogInformation("CreateChef action triggered");
@@ -90,12 +90,23 @@ public IActionResult CreateChef(Chef chef)
     {
         return View("NewChef");
     }
-    
-    db.Chefs.Add(chef);
-    db.SaveChanges();
 
-    return RedirectToAction("Index");
+    try
+    {
+        db.Chefs.Add(chef);
+        db.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Error occurred while saving chef to the database");
+        ModelState.AddModelError("", "An error occurred while saving the chef. Please try again.");
+
+        return View("NewChef");
+    }
 }
+
 
 
   public IActionResult Privacy()
