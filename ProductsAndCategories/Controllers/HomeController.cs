@@ -5,6 +5,9 @@ using ProductsAndCategories.Models;
 
 namespace ProductsAndCategories.Controllers;
 
+//controller for Product
+
+
 public class HomeController : Controller
 {
   private readonly ILogger<HomeController> _logger;
@@ -23,7 +26,7 @@ public class HomeController : Controller
     return View("Index", allProducts);
   }
 
-  // Create new product
+  // Create new 
   [HttpPost("products/create")]
   public IActionResult CreateProduct(Product product)
   {
@@ -37,7 +40,7 @@ public class HomeController : Controller
     return RedirectToAction("Index");
   }
 
-  // Get one Product
+  // Get one 
   [HttpGet("products/{ProductId}")]
   public IActionResult ShowProduct(int ProductId)
   {
@@ -54,7 +57,7 @@ public class HomeController : Controller
     return View("ViewProduct", product);
   }
 
-  // Add category to product
+
   [HttpPost("/products/addcategory")]
   public IActionResult AddCategoryToProduct(int ProductId, int CategoryId)
   {
@@ -70,10 +73,8 @@ public class HomeController : Controller
     {
       return RedirectToAction("Index");
     }
-    // Check if the category is already associated with the product
     if (product.AllAssociations.Any(a => a.CategoryId == CategoryId))
     {
-      // Category already associated, do not add again
       return RedirectToAction("ShowProduct", new { ProductId = ProductId });
     }
     Association newAssociation = new Association
@@ -86,19 +87,6 @@ public class HomeController : Controller
     return RedirectToAction("ShowProduct", new { ProductId = ProductId });
   }
 
-  // Delete the Product
-  [HttpPost("products/{ProductId}/destroy")]
-  public IActionResult DestroyProduct(int ProductId)
-  {
-    Product? ProductToDelete = db.Products.FirstOrDefault(d => d.ProductId == ProductId);
-    if (ProductToDelete == null)
-    {
-      return RedirectToAction("Index");
-    }
-    db.Products.Remove(ProductToDelete);
-    db.SaveChanges();
-    return RedirectToAction("Index");
-  }
 
   public IActionResult Privacy()
   {

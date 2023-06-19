@@ -23,7 +23,7 @@ public class CategoryController : Controller
     return View("Categories", allCategories);
   }
 
-  // Create new category
+  // Create 
   [HttpPost("categories/create")]
   public IActionResult CreateCategory(Category category)
   {
@@ -37,7 +37,7 @@ public class CategoryController : Controller
     return RedirectToAction("Categories");
   }
 
-  // Get one Category
+  // Get one
   [HttpGet("categories/{CategoryId}")]
   public IActionResult ShowCategory(int CategoryId)
   {
@@ -54,7 +54,7 @@ public class CategoryController : Controller
     return View("ViewCategory", category);
   }
 
-  // Add product to category
+
   [HttpPost("/categories/addproduct")]
   public IActionResult AddProductToCategory(int ProductId, int CategoryId)
   {
@@ -70,10 +70,8 @@ public class CategoryController : Controller
     {
       return RedirectToAction("Categories");
     }
-    // Check if the category is already associated with the product
     if (product.AllAssociations.Any(a => a.CategoryId == CategoryId))
     {
-      // Category already associated, do not add again
       return RedirectToAction("ShowCategory", new { CategoryId = CategoryId });
     }
     Association newAssociation = new Association
