@@ -1,0 +1,38 @@
+@model Product
+
+<div class="container mt-3" style="border: 4px solid;">
+  <h1>New Product</h1>
+
+  <form asp-action="CreateProduct" asp-controller="Home" method="post">
+    <div class="container mt-3 ">
+      <div class="row mb-3 mt-3">
+        <label asp-for="Name" class="col-sm-2 col-form-label">Name:</label>
+        <div>
+          <input class="form-control" asp-for="Name">
+          <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+      </div>
+
+      <div class="row mb-3 mt-3">
+        <label asp-for="Description" class="col-sm-2 col-form-label">Description:</label>
+        <div>
+          <textarea class="form-control" asp-for="Description"></textarea>
+          <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label asp-for="Price" class="col-sm-2 col-form-label">Price:</label>
+        <div>
+          <input type="number" asp-for="Price">
+          <span class="text-danger" asp-validation-for="Price"></span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </form>
+  
+</div>

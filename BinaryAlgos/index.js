@@ -39,165 +39,274 @@ class BinarySearchTree {
     }
 
     /**
-     * Inserts a new node with the given newVal in the right place to preserver
-     * the order of this tree.
+     * Recursively counts the total number of nodes in this tree.
      * - Time: O(?).
      * - Space: O(?).
+     * @param {Node} node The current node during the traversal of this tree.
+     * @returns {number} The total number of nodes.
+     */
+    size(node = this.root) { }
+
+    /**
+     * Calculates the height of the tree which is based on how many nodes from
+     * top to bottom (whichever side is taller).
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} node The current node during traversal of this tree.
+     * @returns {number} The height of the tree.
+     */
+    height(node = this.root) { }
+
+    /**
+     * Determines if this tree is a full tree. A full tree is a tree where every
+     * node has both a left and a right except for the leaf nodes (last nodes)
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} node The current node during traversal of this tree.
+     * @returns {boolean} Indicates if this tree is full.
+     */
+    isFull(node = this.root) { }
+
+    /**
+     * DFS Preorder: (CurrNode, Left, Right)
+     * Converts this BST into an array following Depth First Search preorder.
+     * Example on the fullTree var:
+     * [25, 15, 10, 4, 12, 22, 18, 24, 50, 35, 31, 44, 70, 66, 90]
+     * - Time: O(n) linear, every node is visited.
+     * - Space: O(h + n) linear due to the call stack + vals array.
+     * @param {BSTNode} node The current node during the traversal of this tree.
+     * @param {Array<number>} vals The data that has been visited so far.
+     * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
+     */
+    toArrPreorder(node = this.root, vals = []) {
+        if (node) {
+            vals.push(node.data);
+            this.toArrPreorder(node.left, vals);
+            this.toArrPreorder(node.right, vals);
+        }
+        return vals;
+    }
+
+    toArrPreorder2(node = this.root, vals = []) {
+        if(!node) { return vals };
+        vals.push(node.data);
+        this.toArrPreorder(node.left, vals);
+        this.toArrPreorder(node.right, vals);
+        return vals;
+    }
+
+    /**
+     * DFS Inorder: (Left, CurrNode, Right)
+     * Converts this BST into an array following Depth First Search inorder.
+     * See debugger call stack to help understand the recursion.
+     * Example on the fullTree var:
+     * [4, 10, 12, 15, 18, 22, 24, 25, 31, 35, 44, 50, 66, 70, 90]
+     * - Time: O(n) linear, every node is visited.
+     * - Space: O(h + n) linear due to the call stack + vals array.
+     * @param {BSTNode} node The current node during the traversal of this tree.
+     * @param {Array<number>} vals The data that has been visited so far.
+     * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
+     */
+    toArrInorder(node = this.root, vals = []) {
+        if (node) {
+            this.toArrInorder(node.left, vals);
+            vals.push(node.data);
+            this.toArrInorder(node.right, vals);
+        }
+        return vals;
+    }
+
+    /**
+     * DFS Inorder: (Left, CurrNode, Right) using a stack instead of the recursive
+     * call stack.
+     * Converts this BST into an array following Depth First Search inorder.
+     * Example on the fullTree var:
+     * [4, 10, 12, 15, 18, 22, 24, 25, 31, 35, 44, 50, 66, 70, 90]
+     * - Time: O(n) linear.
+     * - Space: O(h + n) linear due to the stack + the vals array.
+     * @param {BSTNode} node The current node during the traversal of this tree.
+     * @returns {Array<number>} All node's data in DFS Preorder.
+     */
+    toArrInorderNonRecursive(node = this.root) {
+        let current = node;
+        const stack = [];
+        const vals = [];
+
+        while (true) {
+            if (current !== null) {
+                stack.push(current);
+                current = current.left;
+            } else if (stack.length > 0) {
+                current = stack.pop();
+                vals.push(current.data);
+                current = current.right;
+            } else {
+                break;
+            }
+        }
+        return vals;
+    }
+
+    /**
+     * DFS Postorder (Left, Right, CurrNode)
+     * Converts this BST into an array following Depth First Search postorder.
+     * Example on the fullTree var:
+     * [4, 12, 10, 18, 24, 22, 15, 31, 44, 35, 66, 90, 70, 50, 25]
+     * - Time: O(n) linear, every node is visited.
+     * - Space: O(h + n) linear due to the call stack + vals array.
+     * @param {BSTNode} node The current node during the traversal of this tree.
+     * @param {Array<number>} vals The data that has been visited so far.
+     * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
+     */
+    toArrPostorder(node = this.root, vals = []) {
+        if (node) {
+            this.toArrPostorder(node.left, vals);
+            this.toArrPostorder(node.right, vals);
+            vals.push(node.data);
+        }
+        return vals;
+    }
+
+    /**
+     * Inserts a new node with the given newVal in the right place to preserver
+     * the order of this tree.
+     * - Time: O(h) linear, h = height of tree because the new node may have to
+     *    be added at the bottom.
+     * - Space: O(1) constant.
      * @param {number} newVal The data to be added to a new node.
      * @returns {BinarySearchTree} This tree.
      */
     insert(newVal) {
-        //Creates a new value
-        const newNode = new BSTNode(newVal);
+        const node = new BSTNode(newVal);
 
-        //Checks if tree is empty, if it is, makes the value this.root
-        if(this.isEmpty()){
-            this.root = newNode;
+        if (this.isEmpty()) {
+            this.root = node;
             return this;
         }
 
-        //keeps track of our current node
-        let currentNode = this.root;
+        let current = this.root;
 
-        //continues til null
-        while (currentNode) {
-            
-            //checks value against currentNode, if less should be inserted on left side of tree
-            if (newVal < currentNode.data) {
-                //Checks if there is a left value. Continues down the line if there is.
-                if (currentNode.left) {
-                    currentNode = currentNode.left;
-                
-                //If there is no value to the left, becomes that newNode and returns it
-                } else {
-                    currentNode.left = newNode;
+        while (true) {
+            if (newVal <= current.data) {
+                if (current.left === null) {
+                    current.left = node;
                     return this;
                 }
-            
-            //it must be greater then current node data so insert on the right side.
+
+                current = current.left;
             } else {
-
-                //Checks if there is a right value, continues if it is.
-                if (currentNode.right) {
-                    currentNode = currentNode.right;
-
-                //If no vlue to the right, makes itself the new node.
-                } else {
-                    currentNode.right = newNode;
+                // newVal is greater than current.data
+                if (current.right === null) {
+                    current.right = node;
                     return this;
                 }
+
+                current = current.right;
             }
         }
     }
 
-
     /**
      * Inserts a new node with the given newVal in the right place to preserver
      * the order of this tree.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(h) linear, h = height of tree because the new node may have to
+     *    be added at the bottom.
+     * - Space: O(h) linear due to the call stack.
      * @param {number} newVal The data to be added to a new node.
-     * @param {Node} curr The node that is currently accessed from the tree as
+     * @param {BSTNode} curr The node that is currently accessed from the tree as
      *    the tree is being traversed.
      * @returns {BinarySearchTree} This tree.
      */
     insertRecursive(newVal, curr = this.root) {
-
-
-        if (newVal < curr.data) {
-            curr.left = this.insertRecursive(newVal, curr.left);
-        } else {
-            curr.right = this.insertRecursive(newVal, curr.right);
+        if (this.isEmpty()) {
+            this.root = new BSTNode(newVal);
+            return this;
         }
 
-        return curr;
+        if (newVal > curr.data) {
+            if (curr.right === null) {
+                curr.right = new BSTNode(newVal);
+                return this;
+            }
+            return this.insertRecursive(newVal, curr.right);
+        }
+
+        if (curr.left === null) {
+            curr.left = new BSTNode(newVal);
+            return this;
+        }
+        return this.insertRecursive(newVal, curr.left);
     }
-
-
 
     /**
      * Determines if this tree contains the given searchVal.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(h) linear, h = height of tree.
+     * - Space: O(1) constant.
      * @param {number} searchVal The number to search for in the node's data.
      * @returns {boolean} Indicates if the searchVal was found.
      */
     contains(searchVal) {
         let current = this.root;
 
-        //While loop keeps going til null value is found, then we know value is not there.
-        while (current !== null) {
+        while (current) {
+            if (current.data === searchVal) {
+                return true;
+            }
 
-            //checks if current node has the value
-            if (searchVal === current.data) {
-                return searchVal;
-
-                //if it was not in current, checks to see if the number is less then.  If it is, checks the left node.
-            } else if (searchVal < current.data) {
+            if (searchVal < current.data) {
                 current = current.left;
-
-                //If current node, and number is NOT less than, it checks right.
             } else {
                 current = current.right;
             }
         }
-
-        return NaN;
+        return false;
     }
-
 
     /**
      * Determines if this tree contains the given searchVal.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(h) linear, h = height of tree.
+     * - Space: O(h) linear due to the call stack.
      * @param {number} searchVal The number to search for in the node's data.
      * @returns {boolean} Indicates if the searchVal was found.
      */
     containsRecursive(searchVal, current = this.root) {
-
-        //Checks to make sure isn't null
         if (current === null) {
-            return NaN;
+            return false;
         }
 
-        //Checks current node for value.
-        if (searchVal === current.data) {
-            return searchVal;
+        if (current.data === searchVal) {
+            return true;
+        }
 
-            //if it was not in current, checks to see if the number is less then.  If it is, it uses it's own function to check one to the left.
-        } else if (searchVal < current.data) {
+        if (searchVal < current.data) {
             return this.containsRecursive(searchVal, current.left);
+        }
 
-            //If current node, and number is NOT less than, it uses its own function to check one to the right.
-        } else {
+        if (searchVal > current.data) {
             return this.containsRecursive(searchVal, current.right);
         }
     }
 
     /**
      * Calculates the range (max - min) from the given startNode.
-     * - Time: O(?).
-     * - Space: O(?).
-     * @param {Node} startNode The node to start from to calculate the range.
+     * - Time: O(rightHeight + leftHeight) -> still linear so simplify to O(h).
+     * - Space: O(h) linear due to the call stack. The max side finishes before
+     *    the right min side is added to the stack.
+     * @param {BSTNode} startNode The node to start from to calculate the range.
      * @returns {number|null} The range of this tree or a sub tree depending on if the
      *    startNode is the root or not.
      */
     range(startNode = this.root) {
-        if (startNode === null) {
+        if (!startNode) {
             return null;
         }
-
-        const minValue = this.min(startNode);
-        const maxValue = this.max(startNode);
-
-        return maxValue - minValue;
+        return this.max(startNode) - this.min(startNode);
     }
-
 
     /**
      * Determines if this tree is empty.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(1) constant.
+     * - Space: O(1) constant.
      * @returns {boolean} Indicates if this tree is empty.
      */
     isEmpty() {
@@ -206,83 +315,77 @@ class BinarySearchTree {
 
     /**
      * Retrieves the smallest integer data from this tree.
-     * - Time: O(?).
-     * - Space: O(?).
-     * @param {Node} current The node that is currently accessed from the tree as
+     * - Time: O(h) linear, h = height of left sub tree starting from current node.
+     * - Space: O(1) constant.
+     * @param {BSTNode} current The node that is currently accessed from the tree as
      *    the tree is being traversed.
      * @returns {number} The smallest integer from this tree.
      */
     min(current = this.root) {
         if (current === null) {
-            return NaN;
+            return null;
         }
 
-        while (current.left !== null) {
+        while (current.left) {
             current = current.left;
         }
-
         return current.data;
     }
 
     /**
      * Retrieves the smallest integer data from this tree.
-     * - Time: O(?).
-     * - Space: O(?).
-     * @param {Node} current The node that is currently accessed from the tree as
+     * - Time: O(h) linear, h = height of left sub tree starting from current node.
+     * - Space: O(h) linear due to the call stack.
+     * @param {BSTNode} current The node that is currently accessed from the tree as
      *    the tree is being traversed.
      * @returns {number} The smallest integer from this tree.
      */
     minRecursive(current = this.root) {
         if (current === null) {
-            return NaN;
+            return null;
         }
 
         if (current.left === null) {
             return current.data;
         }
-
         return this.minRecursive(current.left);
     }
 
     /**
      * Retrieves the largest integer data from this tree.
-     * - Time: O(?).
-     * - Space: O(?).
-     * @param {Node} current The node that is currently accessed from the tree as
+     * - Time: O(h) linear, h = height of right sub tree starting from current node.
+     * - Space: O(1) constant.
+     * @param {BSTNode} current The node that is currently accessed from the tree as
      *    the tree is being traversed.
      * @returns {number} The largest integer from this tree.
      */
     max(current = this.root) {
-        {
-            if (current === null) {
-                return NaN;
-            }
-
-            while (current.right !== null) {
-                current = current.right;
-            }
-
-            return current.data;
+        if (current === null) {
+            return null;
         }
+
+        while (current.right) {
+            current = current.right;
+        }
+        return current.data;
     }
 
     /**
      * Retrieves the largest integer data from this tree.
-     * - Time: O(?).
-     * - Space: O(?).
-     * @param {Node} current The node that is currently accessed from the tree as
+     * - Time: O(h) linear, h = height of right sub tree starting from current node.
+     * - Space: O(h) linear due to the call stack.
+     * @param {BSTNode} current The node that is currently accessed from the tree as
      *    the tree is being traversed.
      * @returns {number} The largest integer from this tree.
      */
     maxRecursive(current = this.root) {
         if (current === null) {
-            return NaN;
+            return null;
         }
 
         if (current.right === null) {
             return current.data;
         }
-
         return this.maxRecursive(current.right);
     }
 
@@ -363,4 +466,3 @@ fullTree
     .insert(44)
     .insert(66)
     .insert(90);
-fullTree.print();
