@@ -17,6 +17,46 @@ class MinHeap {
         this.heap = [null];
     }
 
+    extract() {
+        // check if the heap is empty
+        if (this.heap.length <= 1) {
+            return null;
+        }
+        // save the first node to a temporary variable
+        const min = this.heap[1];
+        // replace the root with the last node in the heap
+        let idx1 = this.heap.pop();
+        this.heap[1] = idx1;
+        // swap down the heap to maintain the heap property
+        let idx = 1;
+        while (true) {
+            // calculate the indices of the left and right child nodes
+            const leftIdx = this.idxOfLeftChild(idx);
+            const rightIdx = this.idxOfRightChild(idx);
+            // check if both child indices are out of bounds
+            if (leftIdx >= this.heap.length && rightIdx >= this.heap.length) {
+                break;
+            }
+            // determine the index of the child with the smalles value
+            let minChildIdx = leftIdx;
+            if (
+                rightIdx < this.heap.length &&
+                this.heap[rightIdx] < this.heap[leftIdx]
+            ) {
+                minChildIdx = rightIdx;
+            }
+            // compare the current node with the smallest child
+            if (this.heap[idx] < this.heap[minChildIdx]) {
+                break;
+            }
+            // swap the current node with the smallest child
+            this.swap(idx, minChildIdx);
+            idx = minChildIdx;
+        }
+        // return the minimum value that was initially saved
+        return min;
+    }
+
     /**
      * Retrieves the top (minimum number) in the heap without removing it.
      * - Time: O(1) constant.
