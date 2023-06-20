@@ -1,6 +1,6 @@
 {
-  "SerializedFilePath": "f:\\Coding\\C\\Login\\obj\\Debug\\net7.0\\project.razor.json",
-  "FilePath": "f:\\Coding\\C\\Login\\Login.csproj",
+  "SerializedFilePath": "f:\\Coding\\C\\ProductsAndCategories\\obj\\Debug\\net7.0\\project.razor.json",
+  "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\ProductsAndCategories.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "7.0",
@@ -18642,56 +18642,76 @@
     ],
     "CSharpLanguageVersion": 1100
   },
-  "RootNamespace": "Login",
+  "RootNamespace": "ProductsAndCategories",
   "Documents": [
     {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Home\\Success.cshtml",
-      "TargetPath": "Views\\Home\\Success.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Home\\_Login.cshtml",
-      "TargetPath": "Views\\Home\\_Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Shared\\Error.cshtml",
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Home\\ViewProduct.cshtml",
+      "TargetPath": "Views\\Home\\ViewProduct.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Home\\_Register.cshtml",
-      "TargetPath": "Views\\Home\\_Register.cshtml",
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Home\\_AllProducts.cshtml",
+      "TargetPath": "Views\\Home\\_AllProducts.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Home\\Privacy.cshtml",
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Category\\_NewCategory.cshtml",
+      "TargetPath": "Views\\Category\\_NewCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Category\\ViewCategory.cshtml",
+      "TargetPath": "Views\\Category\\ViewCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Category\\Categories.cshtml",
+      "TargetPath": "Views\\Category\\Categories.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Category\\_AllCategories.cshtml",
+      "TargetPath": "Views\\Category\\_AllCategories.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Home\\_NewProduct.cshtml",
+      "TargetPath": "Views\\Home\\_NewProduct.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\Coding\\C\\Login\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Coding\\C\\ProductsAndCategories\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],

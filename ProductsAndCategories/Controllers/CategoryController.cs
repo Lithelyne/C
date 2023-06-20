@@ -42,9 +42,9 @@ public class CategoryController : Controller
   public IActionResult ShowCategory(int CategoryId)
   {
     Category? category = db.Categories
-      .Include(c => c.AllAssociations)
-      .ThenInclude(a => a.Product)
-      .FirstOrDefault(d => d.CategoryId == CategoryId);
+      .Include(category => category.AllAssociations)
+      .ThenInclude(association => association.Product)
+      .FirstOrDefault(first => first.CategoryId == CategoryId);
     if (category == null)
     {
       return RedirectToAction("Categories");
@@ -59,18 +59,18 @@ public class CategoryController : Controller
   public IActionResult AddProductToCategory(int ProductId, int CategoryId)
   {
     Category? category = db.Categories
-      .Include(p => p.AllAssociations)
-      .FirstOrDefault(p => p.CategoryId == CategoryId);
+      .Include(product => product.AllAssociations)
+      .FirstOrDefault(product => product.CategoryId == CategoryId);
     if (category == null)
     {
       return RedirectToAction("Categories");
     }
-    Product? product = db.Products.FirstOrDefault(c => c.ProductId == ProductId);
+    Product? product = db.Products.FirstOrDefault(category => category.ProductId == ProductId);
     if (product == null)
     {
       return RedirectToAction("Categories");
     }
-    if (product.AllAssociations.Any(a => a.CategoryId == CategoryId))
+    if (product.AllAssociations.Any(association => association.CategoryId == CategoryId))
     {
       return RedirectToAction("ShowCategory", new { CategoryId = CategoryId });
     }
