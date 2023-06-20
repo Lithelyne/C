@@ -1,0 +1,39 @@
+@model Category
+
+<div class="container mt-3">
+  <div class="text-center">
+    <h1>@Model.Name</h1>
+  </div>
+  <div class="row">
+  <div class="col-md-6" style="border: 4px solid;">
+    <h3>Products</h3>
+    <table>
+      <tbody>
+        @foreach (var association in Model.AllAssociations)
+        {
+          if (association.Product != null)
+          {
+            <tr><td>@association.Product.Name</td></tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6" style="border: 4px solid;">
+    <h3>Add Product</h3>
+    <form asp-action="AddProductToCategory" asp-controller="Category" method="post">
+      <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+      <select name="ProductId">
+        @foreach (var product in (List<Product>)ViewData["AvailableProducts"])
+        {
+          if (!Model.AllAssociations.Any(Association => Association.ProductId == product.ProductId))
+          {
+            <option value="@product.ProductId">@product.Name</option>
+          }
+        }
+      </select>
+      <button type="submit" class="btn btn-primary mb-3">Add</button>
+    </form>
+  </div>
+  </div>
+</div>
