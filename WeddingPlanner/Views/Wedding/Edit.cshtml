@@ -1,0 +1,49 @@
+@model Wedding
+
+<div class="container">
+  <div>@await Html.PartialAsync("_NavBar")</div>
+</div>
+<div class="container" style="border: 5px solid;">
+    <h1 class="text-center">New Wedding</h1>
+
+    <form asp-action="UpdateWedding" asp-controller="Wedding" asp-route-weddingId="@Model.WeddingId" method="post">
+        <div class="container">
+            <div class="row mb-3 mt-3">
+                <label asp-for="WedderOne" class="col-sm-2 col-form-label">Wedder One:</label>
+                <div>
+                    <input class="form-control" asp-for="WedderOne">
+                    <span class="text-danger" asp-validation-for="WedderOne" value="@Model.WedderOne"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3 mt-3">
+                <label asp-for="WedderTwo" class="col-sm-2 col-form-label">Wedder Two:</label>
+                <div>
+                    <textarea class="form-control" asp-for="WedderTwo"></textarea>
+                    <span class="text-danger" asp-validation-for="WedderTwo" value="@Model.WedderTwo"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label asp-for="Date" class="col-sm-2 col-form-label">Date:</label>
+                <div>
+                    <input type="date" asp-for="Date">
+                    <span class="text-danger" asp-validation-for="Date" value="@Model.Date"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label asp-for="Address" class="col-sm-2 col-form-label">Address:</label>
+                <div>
+                    <textarea class="form-control" asp-for="Address"></textarea>
+                    <span class="text-danger" asp-validation-for="Address" value="@Model.Address"></span>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,66 @@
+@model List<Wedding>
+
+
+<div class="container">
+  <div>@await Html.PartialAsync("_NavBar")</div>
+</div>
+
+<div class="text-center">
+    <div class="container mt-3">
+        <h1 class="display-4">All Weddings</h1>
+        <table class="table border rounded">
+            <thead>
+                <th scope="col">Wedding of</th>
+                <th scope="col">Date</th>
+                <th scope="col">Guest Count</th>
+                <th scope="col">Action</th>
+            </thead>
+            <tbody>
+                @foreach (Wedding wedding in Model)
+                {
+                    <tr>
+                        <td><a asp-controller="Wedding" asp-action="ViewOne" asp-route-weddingId="@wedding.WeddingId">
+                                @wedding.WedderOne & @wedding.WedderTwo</a>
+                        </td>
+                        <td>
+                            @if (wedding.Date != null)
+                            {
+                                DateTime date = DateTime.Parse(wedding.Date.ToString());
+                                <h3>@date.ToString("MMMM d yyyy")</h3>
+                            }
+                        </td>
+
+                        <td>@wedding.AllRsvps.Count</td>
+
+                        <td>
+                            @if (wedding.UserId != Context.Session.GetInt32("UUID"))
+                            {
+                                bool alreadyRsvp = wedding.AllRsvps.Any(rsvp => rsvp.UserId ==
+                                Context.Session.GetInt32("UUID"));
+                                <form asp-controller="Wedding" asp-action="Rsvp" asp-route-weddingId="@wedding.WeddingId">
+                                    <button>
+                                        @if (alreadyRsvp)
+                                        {
+                                            <span>Remove Signup</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Signup</span>
+                                        }
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-controller="Wedding" asp-action="DeleteWedding"
+                                    asp-route-weddingId="@wedding.WeddingId">
+                                    <button>Delete</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
