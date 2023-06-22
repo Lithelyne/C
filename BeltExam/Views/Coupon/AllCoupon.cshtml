@@ -1,0 +1,57 @@
+@model List<Coupon>
+@using Microsoft.AspNetCore.Http
+
+
+    <div class="container">
+        <div>
+            @await Html.PartialAsync("_NavBar")
+        </div>
+    
+    </div>
+
+
+<div class="container">
+        <h1>Welcome, @Context.Session.GetString("Username")!</h1>
+    <div class="row">
+
+        @foreach (Coupon coupon in Model)
+        {
+
+<div class="border border-primary w-50 text-center" style="border-width: 3px; border-color: black;">
+                <h1>@coupon.Code</h1>
+
+                <div>
+                    <h2>Use on @coupon.Website</h2>
+                    <p>@coupon.Description</p>
+                    <p>@coupon.UserCoupons.Count people have used this</p>
+                    <p>Posted by @coupon.Creator.Username</p>
+                </div>
+
+             @if (coupon.UserId != null && coupon.UserId == Context.Session.GetInt32("UUID"))
+        {
+            <div>You Posted This</div>
+        }
+                @if (coupon.UserId != Context.Session.GetInt32("UUID"))
+                {
+                    bool alreadyUsed = coupon.UserCoupons.Any(used => used.UserId == Context.Session.GetInt32("UUID"));
+                            @if (alreadyUsed)
+                            {
+                                <span>You Used This</span>
+                            }
+                            else
+                            {
+                                <form asp-controller="Coupon" asp-action="UserCoupon" asp-route-couponId="@coupon.CouponId">
+                                    <button>
+                                        <span>
+                                            Use this coupon!
+                                        </span>
+                                    </button>
+                                </form>
+                            }
+                }
+
+
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,34 @@
+@{
+#pragma warning disable CS8600
+#pragma warning disable CS8602
+}
+
+
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <h3>Coupon Clipper</h3>
+    <div class="">
+      <ul class="navbar-nav d-flex flex-row">
+
+        <li class="nav-item me-3">
+          <a asp-action="ViewOne" asp-controller="Coupon" asp-route-userId='@Context.Session.GetInt32("UUID")'>Account Info</a>
+        </li>
+
+        <li class="nav-item me-3">
+          <a asp-controller="Coupon" asp-action="NewCoupon">Add Coupon</a>
+        </li>
+
+        @{
+          if (Context.Session.GetInt32("UUID") != null)
+          {
+            <li class="nav-item">
+              <form asp-controller="Home" asp-action="logout" method="POST">
+                <button type="submit">Logout</button>
+              </form>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

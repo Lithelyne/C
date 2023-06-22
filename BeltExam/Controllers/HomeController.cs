@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WeddingPlanner.Models;
+using BeltExam.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace WeddingPlanner.Controllers;
+namespace BeltExam.Controllers;
 
 public class HomeController : Controller
 {
@@ -21,11 +21,12 @@ public class HomeController : Controller
     {
         if (HttpContext.Session.GetInt32("UUID") != null)
         {
-            return RedirectToAction("AllWedding", "wedding");
+            return RedirectToAction("AllCoupon", "Coupon");
         }
         return View("Index");
         
     }
+    
 
     [HttpPost("register")]
     public IActionResult Register(User newUser)
@@ -42,9 +43,9 @@ public class HomeController : Controller
         db.SaveChanges();
 
         HttpContext.Session.SetInt32("UUID", newUser.UserId);
-        HttpContext.Session.SetString("FirstName", newUser.FirstName);
+        HttpContext.Session.SetString("Username", newUser.Username);
 
-        return RedirectToAction("AllWedding", "Wedding");
+        return RedirectToAction("AllCoupon", "Coupon");
     }
 
     [HttpPost("login")]
@@ -71,10 +72,10 @@ public class HomeController : Controller
             return Index();
         }
         HttpContext.Session.SetInt32("UUID", dbUser.UserId);
-        HttpContext.Session.SetString("FirstName", dbUser.FirstName);
+        HttpContext.Session.SetString("Username", dbUser.Username);
 
         
-        return RedirectToAction("AllWedding", "Wedding");
+        return RedirectToAction("AllCoupon", "Coupon");
     }
 
     [HttpPost("logout")]

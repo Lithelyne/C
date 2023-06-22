@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = f:\Coding\C\BeltExam
 build_property._RazorSourceGeneratorDebug = 
 
+[f:/Coding/C/BeltExam/Views/Coupon/AllCoupon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cG9uXEFsbENvdXBvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[f:/Coding/C/BeltExam/Views/Coupon/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cG9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[f:/Coding/C/BeltExam/Views/Coupon/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cG9uXE5ldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[f:/Coding/C/BeltExam/Views/Coupon/_NavBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cG9uXF9OYXZCYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [f:/Coding/C/BeltExam/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,41 @@
+@model Coupon
+
+<div class="container">
+  <div>@await Html.PartialAsync("_NavBar")</div>
+</div>
+<div class="container" style="border: 5px solid;">
+    <h1 class="text-center">Add a coupon</h1>
+
+    <form asp-action="CreateCoupon" asp-controller="Coupon" method="post">
+        <div class="container">
+            <div class="row mb-3 mt-3">
+                <label asp-for="Code" class="col-sm-2 col-form-label">Coupon Code</label>
+                <div>
+                    <input class="form-control" asp-for="Code">
+                    <span class="text-danger" asp-validation-for="Code"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label asp-for="Website" class="col-sm-2 col-form-label">Website applicable on</label>
+                <div>
+                    <input asp-for="Website">
+                    <span class="text-danger" asp-validation-for="Website"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label asp-for="Description" class="col-sm-2 col-form-label">Description</label>
+                <div>
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </form>
+
+</div>

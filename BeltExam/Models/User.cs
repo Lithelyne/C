@@ -3,26 +3,23 @@
 #pragma warning disable CS8602
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace WeddingPlanner.Models;
+namespace BeltExam.Models;
 public class User
 {
     [Key]
     public int UserId { get; set; }
 
     [Required]
-    [MinLength(2, ErrorMessage = "must be at least 2 characters.")]
-    [MaxLength(20, ErrorMessage = "must be at most 30 characters.")]
-    public string FirstName { get; set; }
-
-    [Required]
-    [MinLength(2, ErrorMessage = "must be at least 2 characters.")]
-    [MaxLength(20, ErrorMessage = "must be at most 30 characters.")]
-    public string LastName { get; set; }
+    [MinLength(2, ErrorMessage = "must be at least 3 characters.")]
+    public string Username { get; set; }
 
     [Required]
     [EmailAddress]
     [UniqueEmail]
     public string Email { get; set; }
+
+    public List<UserCoupon> UserCoupons { get; set; } = new List<UserCoupon>();
+
 
     [Required]
     [DataType(DataType.Password)]

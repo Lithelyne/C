@@ -1,0 +1,20 @@
+@model User
+
+<div>
+    @await Html.PartialAsync("_NavBar")
+</div>
+
+<div class="container">
+    <div class="row">
+        <h1>Account Information</h1>
+
+        <p>Username: @Model.Username</p>
+
+        <p>Email: @Model.Email</p>
+
+        <p>Coupons posted: @ViewBag.coupons</p>
+
+        <p># of coupons you used: @Model.UserCoupons.Count</p>
+
+    </div>
+</div>
