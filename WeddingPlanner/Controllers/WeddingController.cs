@@ -29,6 +29,7 @@ public class WeddingController : Controller
       .Include(wedding => wedding.Creator)
       .Include(wedding => wedding.AllRsvps)
       .ToList();
+      
     return View("AllWedding", allWedding);
   }
 
@@ -58,6 +59,7 @@ public class WeddingController : Controller
   [HttpGet("wedding/{WeddingId}")]
   public IActionResult ViewOne(int weddingId)
   {
+    //creator include if by xxx
     Wedding? oneWedding = db.Weddings
         .Include(wedding => wedding.AllRsvps)
         .ThenInclude(rsvp => rsvp.User)
